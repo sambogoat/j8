@@ -1,10 +1,7 @@
-package domain;
+package j8;
 
 import java.util.Optional;
 
-/**
- * Created by steve on 5/10/15.
- */
 public class PV {
 
     private String ccy;
@@ -29,11 +26,30 @@ public class PV {
         return Optional.ofNullable(error);
     }
 
+    public String getError2() {
+        return error;
+    }
+
     public double getValue() {
         return value;
     }
 
     public String getTradeId() {
         return tradeId;
+    }
+
+    public String getCcy() { return ccy; }
+
+    public static void main(String[] args) {
+
+        PV withError = new PV( "1", "GBP", "some error", 1.0);
+
+        PV withoutError = new PV("1", "GBP", 1.0);
+
+        System.out.println("with error: " + withError.getError());
+        // -> "with error: Optional[some error]"
+
+        System.out.println("without error is: " + withoutError.getError());
+        // -> "without error: Optional.empty"
     }
 }
