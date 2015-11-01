@@ -46,6 +46,10 @@ public class PV {
 
         PV withoutError = new PV("1", "GBP", 1.0);
 
+        // If it has a value then isPresent() will return true and
+        // get() will return the value.
+        // Otherwise get() throws NoSuchElementException.
+
         System.out.println("with error: " + withError.getError());
         // -> "with error: Optional[some error]"
 

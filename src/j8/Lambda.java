@@ -1,5 +1,6 @@
 package j8;
 
+import java.util.function.BiFunction;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -17,7 +18,17 @@ public class Lambda {
 
         // Lambda can refer to names in the lexical context (compare to inner classes).
 
+        // Syntax
+        // 1. Can omit the data type of the parameters in a lambda expression.
+        // 2. Can omit the parentheses if there is only one parameter.
+        // 3. Can omit body braces for single expressions.
+
         Predicate<PV> p = pv -> pv.getCcy().equals(ccy);
+
+//        BiFunction<String, String, Integer> bif = (s1, s2) -> {
+//            System.out.println(s1);
+//            return (s1+s2).length();
+//        };
 
         pvs.filter(p);
 

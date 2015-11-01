@@ -12,7 +12,7 @@ public class Callables {
     public static void main(String[] args) {
 
 
-        Future<String> fut1 = service.submit(new Callable<String>() {
+        Future<String> f1 = service.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
                 return "foo";
@@ -22,7 +22,7 @@ public class Callables {
 
         Callable<String> c = () -> "foo";
 
-        Future<String> fut2 = service.submit(c);
+        Future<String> f2 = service.submit(c);
 
         service.submit(() -> "foo");
 

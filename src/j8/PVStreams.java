@@ -25,22 +25,16 @@ public class PVStreams {
         System.out.println("For loop sum:: " + sum);
 
         // 2) Summing values with Streams
-
-        // :: is shorthand for () ->
-
         double sum2 = pvs.stream()
                 .filter(p -> !p.getError().isPresent())
                 .mapToDouble(PV::getValue)
                 .sum();
         System.out.println("Streams sum: " + sum2);
 
-        // TODO - Introduce Collector and Collectors
-
         // 3) Grouped aggregation
         Map<String, Double> groupedSum = pvs.stream()
                 .filter(p -> !p.getError().isPresent())
                 .collect(groupingBy(PV::getCcy, summingDouble(PV::getValue)));
-
         System.out.println("Grouped sum: " + groupedSum);
 
         // 4) Getting all errors - as map tradeId -> error
